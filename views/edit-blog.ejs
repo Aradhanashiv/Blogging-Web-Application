@@ -1,0 +1,26 @@
+<h1 class="text-center mb-5 fw-bold">Edit <%= blog.title %></h1>
+  <div class="container bg-body-tertiary p-4 rounded-4">
+<form action="/edit-blog/<%= blog._id %>?_method=PUT" method="post" class="row g-2" enctype="multipart/form-data">
+    <label for="inputtitle" class="form-label">Title</label>
+    <input type="text" class="form-control" id="inputname4" name="title" value="<%= blog.title %>">
+    
+    <label for="inputcontent" class="form-label">Content</label>
+    <input type="text" class="form-control" id="inputEmail4" name="body" value="<%= blog.body %>">
+
+    <label for="inputthumbnail" class="form-label">Change Image</label>
+    <input type="file" class="form-control" id="inputPassword4" name="coverImage" >
+    
+    <% if (blog.coverImageurl) { %>
+    <div class="mb-3">
+      <p>Current Image:</p>
+      <img src="/<%= blog.coverImageurl %>" alt="Blog image" style="max-width:200px;"/>
+    </div>
+  <% } %>
+
+
+  <div class="col-12 mt-3">
+    <button type="submit" class="btn btn-primary">Update Blog</button>
+  </div>
+  </div>
+</form>
+

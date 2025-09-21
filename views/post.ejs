@@ -1,0 +1,22 @@
+<div class="container-fluid mt-4 w-75" width="60%">
+   <h1 class="fw-bold"><%= post.title %></h1>
+  
+  <div class="body">
+    <img src="/<%= post.coverImageurl %>" class="card-img-top  text-center" alt="coverImage" width="200px" height="350px">
+    <p class="card-text"><%= post.body %></p>
+  </div>
+<p class="text-end text-warning m-4"><i><u>Published by <%= post.createdby.name  %></u></i></p>
+<br><br>
+<h2>Leave a comment</h2>
+<form action="/post/<%= post._id %>/comment" method="post" class="d-flex gap-2 p-3">
+  <input class="form-control border border-secondary" type="text" name="body" id="" placeholder="comment">
+<button type="submit" class="btn btn-warning">Add</button>
+</form>
+
+<% comments.forEach(comment => {  %>
+<div class="bg-dark-subtle rounded-2 w-75 my-3 p-2">
+<img src="../uploads/userImage/img.png" alt="coverImage" class="rounded-circle m-2" width="20px"><%= comment.commentBy.name  %>
+<p><%= comment.body %></p>
+</div>
+<% }); %>
+</div>
